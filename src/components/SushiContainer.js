@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import MoreButton from "./MoreButton";
 import Sushi from './Sushi';
 
-function SushiContainer(props) {
+function SushiContainer({ setEmptyPlates, emptyPlates, setBudget, budget }) {
 // INITIALIZE STATE FOR SUSHI LIST
   const [sushiList, setSushiList] = useState([]);
 // INITIALIZE STATE FOR SUSHI INDEX
@@ -17,7 +17,7 @@ function SushiContainer(props) {
   // ONLY SHOW 4 AT A TIM
   const mappedSushi = sushiList
     .slice(only4, only4 + 4)
-    .map(sush => <Sushi key={ sush.id } sush={sush} />)
+    .map(sush => <Sushi key={ sush.id } sush={sush} setEmptyPlates={ setEmptyPlates } emptyPlates={ emptyPlates } setBudget={ setBudget } budget={ budget } />)
   return (
     <div className="belt">
       { mappedSushi }

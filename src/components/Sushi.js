@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 
-function Sushi({ sush }) {
+function Sushi({ sush, setEmptyPlates, emptyPlates, budget, setBudget }) {
 // INITIALIZE STATE FOR EATING SUSHI
   const [eatSush, setEatSush] = useState(false);
 // FUNCTION TO TOGGLE EATSUSH
   function handleClick() {
     setEatSush(eatSush => !eatSush);
+    setEmptyPlates([...emptyPlates, sush])
+    setBudget(budget - sush.price)
   }
   return (
     <div className="sushi">
